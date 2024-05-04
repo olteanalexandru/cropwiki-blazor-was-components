@@ -1,0 +1,54 @@
+﻿@code {
+    [Parameter]
+    public Dictionary<string, object> CropData { get; set; } = new Dictionary<string, object>();
+}
+
+@if (CropData != null && CropData.Any())
+{
+    <div class="table-responsive-sm">
+        <table class="table table-striped table-bordered custom-table">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Property</th>
+                    
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in CropData)
+                {
+                    <tr>
+                        <td><strong>@item.Key</strong></td>
+                        <td>@item.Value</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}
+else
+{
+    <p>No crop data available</p>
+}
+
+
+<!-- Css -->
+<style>
+    .custom-table {
+    background-color: #f0f9e8; /* Light green background */
+    border: 2px solid #c5e1a5; /* Light green border */
+}
+
+.custom-table th {
+    font-weight: bold;
+    color: #4caf50; /* Green text color */
+}
+
+.custom-table tbody tr:hover {
+    background-color: #e8f5e9; /* Light green hover effect */
+}
+
+</style>
+
+
+
+
